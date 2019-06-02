@@ -4,9 +4,44 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BarHelper"
+        xmlns:viewmodels="clr-namespace:BarHelper.ViewModels"
+        xmlns:views="clr-namespace:BarHelper.Views"
         mc:Ignorable="d"
         Title="MainWindow" Height="900" Width="1600">
+    <Window.DataContext>
+        <viewmodels:MainWindowViewModel/>
+    </Window.DataContext>
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type viewmodels:RedViewModel}">
+            <views:RedView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:BlueViewModel}">
+            <views:BlueView/>
+        </DataTemplate>
+    </Window.Resources>
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="225*"/>
+            <ColumnDefinition Width="334.75*"/>
+            <ColumnDefinition Width="334.75*"/>
+            <ColumnDefinition Width="334.75*"/>
+            <ColumnDefinition Width="334.75*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <DockPanel Background="Gray" Grid.Row="0" Grid.Column="0" Grid.RowSpan="5">
+            <StackPanel>
+                <Button Content="Red View" Command="{Binding NavCommand}" CommandParameter="redView"/>
+                <Button Content="Blue View" Command="{Binding NavCommand}" CommandParameter="blueView"/>
+            </StackPanel>
+        </DockPanel>
+
+        <ContentControl Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="4" Grid.RowSpan="5" Content="{Binding CurrentViewModel}"/>
     </Grid>
 </Window>

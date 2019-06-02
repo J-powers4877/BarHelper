@@ -1,5 +1,4 @@
-﻿using BarHelper.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,26 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace BarHelper
+namespace BarHelper.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for RedView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class RedView
     {
-        public MainWindow()
+        public RedView()
         {
             InitializeComponent();
-        }
-
-        private void RedView_Clicked(object sender, RoutedEventArgs e)
-        {
-            DataContext = new RedViewModel();
-        }
-
-        private void BlueView_Clicked(object sender, RoutedEventArgs e)
-        {
-            DataContext = new BlueViewModel();
         }
     }
 }
